@@ -16,11 +16,19 @@ const forecast = (x, y, callback) => {
       callback(
         undefined,
         body.daily.data[0].summary +
-          " It is " +
+          " It is currently " +
           body.currently.temperature +
-          " degrees. there is " +
-          body.currently.precipProbability +
-          "% chance of rain"
+          " degrees with a high of " +
+          body.daily.data[0].temperatureHigh +
+          " . There is " +
+          body.currently.precipProbability * 100 +
+          "% chance of rain just now, " +
+          "with wind gusts of " +
+          body.currently.windGust +
+          "kph" +
+          " and the closest storm is " +
+          body.currently.nearestStormDistance +
+          " kilometers away"
       );
     }
   });
